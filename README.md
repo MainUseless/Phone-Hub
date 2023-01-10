@@ -13,6 +13,15 @@
 5. Open the imported macro in macrodroid and match each profile from send/expect with a command that will be sent to your phone.
 6. Add configure WOL action with your PC profile created in step 3.
 7. Configure the first if condition to match your sender user name (can be removed if you don't want it).
+8. Open run, type shell:startup, add [shut.pyw](https://github.com/MainUseless/Phone-Controlled-Shutdown/blob/main/shut.pyw) or a shortcut of it in startup folder.
+9. Make sure to allow python through your firewall.
+    - if you get An attempt was made to access a socket in a way forbidden by its access permissions error.
+    - Open cmd as admin and run:
+    ```
+    net stop hns
+    net start hns
+    ```
+  
 
 ## Supported actions:
 - WOL : (/wake {pc name})
