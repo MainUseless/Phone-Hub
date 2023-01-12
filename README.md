@@ -1,4 +1,4 @@
-# Phone-Controlled-Shutdown
+# Phone-Hub
 ## Info:
 This project allows the user to control his PC's in a local network through any platform/app that allows sending messages to that phone. 
 provided that there exists a spare android phone that is connected to the same local network and the PC's are running the provided TCP server script.
