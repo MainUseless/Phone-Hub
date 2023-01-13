@@ -1,5 +1,3 @@
-{"command":"/wake"}
-
 # Phone-Hub
 
 ## Info:
