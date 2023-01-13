@@ -35,7 +35,7 @@ provided that there exists a spare android phone connected to the same local net
 
 ### Pc (Windows):
 
-* Open run(Win+R), type:shell:startup, add [control.pyw](https://github.com/MainUseless/Phone-Controlled-Shutdown/blob/main/control.pyw) or a shortcut of it in startup folder.
+* Open run(Win+R), type shell:startup, add [control.pyw](https://github.com/MainUseless/Phone-Controlled-Shutdown/blob/main/control.pyw) or a shortcut of it in startup folder.
 * Make sure to allow python through your firewall.
 
   - if you get An attempt was made to access a socket in a way forbidden by its access permissions error.
