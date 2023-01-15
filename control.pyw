@@ -6,7 +6,6 @@ import json
 import abc
 import os
 
-port=12000
 
 def notify(mess):
     notification = Notify()
@@ -21,6 +20,7 @@ class osInstance(abc.ABC):
     @abc.abstractclassmethod
     def sleep():
         pass
+    
 
 class windows(osInstance):
     def shutdown(self):
@@ -35,14 +35,7 @@ class linux(osInstance):
         os.system("systemctl suspend")
        
 class S(BaseHTTPRequestHandler):
-    os
-    
-    def __init__(self):
-        if(platform=='win32'):
-            self.os = windows()
-        else:
-            self.os = linux()
-    
+
     def _set_response(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
@@ -55,22 +48,20 @@ class S(BaseHTTPRequestHandler):
         print(result)
         
         if(result['command']=="/test" and platform=='win32'):
-            os.notify("testing")
+            notify("testing")
             
         elif (result['command']=='/kill'):
             notify('remotely shutting down')
-            os.shutdown()
+            operatingSystem.shutdown()
         
         elif (result['command']=='/sleep'):
             notify("Remotely hibernating")
-            os.hibernate()
+            operatingSystem.hibernate()
             
         self._set_response()
         self.wfile.write("POST request for {}".format(self.path).encode('utf-8'))
 
-def run():
-    server_class=HTTPServer
-    handler_class=S()
+def run(server_class=HTTPServer, handler_class=S, port=12000):
     logging.basicConfig(level=logging.INFO)
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
@@ -83,5 +74,12 @@ def run():
     httpd.server_close()
     logging.info('Stopping httpd...\n')
 
+port=12000
+operatingSystem = windows()
+
 if __name__ == '__main__':
+    if(platform=='win32'):
+        operatingSystem = windows()
+    else:
+        operatingSystem = linux()
     run()
