@@ -21,7 +21,7 @@ provided that there exists a spare android phone connected to the same local net
 * Make sure battery optimaization is turned off for macrodroid and macrodroid helper.
 * Import [Remote_Control](https://github.com/MainUseless/Phone-Controlled-Shutdown/blob/main/Remote_Control.macro) to macrodroid.
 * Configure the first if condition to match notification name (can be removed if you don't want it).
-* In local variables add your broadcast ip and PC mac address.
+* In local variables add your broadcast ip and PC mac address in format(AABBAABBAABB) no delimiters between values ie(no dashes, colons or dots).
 * Open the imported macro ,edit each http action with the static local ip of the target pc and with the propper json body.
 
 ### Main phone:
